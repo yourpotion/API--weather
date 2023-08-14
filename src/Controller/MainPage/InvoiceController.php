@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\MainPage;
 
 use App\Message\AsyncNotificationMessage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +25,8 @@ class InvoiceController extends AbstractController
      */
     public function create(int $hours, int $userId, MessageBusInterface $messageBus, int $cityId): RedirectResponse
     {
-        $time = 3600000 * $hours;
+
+        $time = (new InvoiceController())->countingTime($hours);
 
         $message = new AsyncNotificationMessage($userId, 'Lets check weather');
         // Отправить уведомление получателю с задержкой
@@ -36,5 +37,9 @@ class InvoiceController extends AbstractController
             'cityId' => $cityId,
             'userId' => $userId
         ]);
+    }
+
+    public function countingTime(int $hours){
+        return 3600000 * $hours;
     }
 }

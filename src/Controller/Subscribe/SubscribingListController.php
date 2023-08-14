@@ -1,16 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
-namespace App\Controller;
+namespace App\Controller\Subscribe;
 
 use App\Repository\UserRepository;
-use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class JWTController extends AbstractController
+class SubscribingListController extends AbstractController
 {
     /**
      * @var UserRepository
@@ -20,24 +17,21 @@ class JWTController extends AbstractController
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
-        
     }
 
-    #[Route('/jwt/token/{userId}', name: 'app_jwt')]
+    #[Route('/list/{userId}', name: 'app_subscribing_list')]
     /**
-     * @param JWTTokenManagerInterface $jwtManager
      * @param int $userId
      * 
      * @return Response
      */
-    public function index(JWTTokenManagerInterface $jwtManager, int $userId): Response
+    public function index(int $userId): Response
     {
         $user = $this->userRepository->find($userId);
 
-        $token = $jwtManager->create($user);
 
-        return $this->render('jwt/index.html.twig', [
-            'token' => $this->json(['token' => $token]),
+        return $this->render('subscribing_list/index.html.twig', [
+            'subscribings' => $user->getCities(),
         ]);
     }
 }

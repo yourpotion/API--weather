@@ -42,4 +42,19 @@ class WeatherAPIService
         }
         return ($informationAboutWeather);
     }
+
+    public function getAPI($cities): array
+    {
+        $urlOfCities = [];
+
+        foreach ($cities as $key => $city) {
+
+            $url = $city->getAPI();
+
+            $name = $city->getName();
+
+            $urlOfCities[$key] = ["$name" => "$url"];
+        }
+        return $urlOfCities;
+    }
 }

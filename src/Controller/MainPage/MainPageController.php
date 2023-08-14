@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\MainPage;
 
 use App\Repository\CityRepository;
 use App\Service\WeatherAPIService;
@@ -38,10 +38,13 @@ class MainPageController extends AbstractController
 
         $weatherOfCities = $this->weatherAPIService->weatherOfCities($cities);
 
+        $cityAPI = $this->weatherAPIService->getAPI($cities);
+
         return $this->render('main_page/index.html.twig', [
             'cities' => $cities,
             'hours' => array(1, 3, 6, 12),
             'weatherOfCities' => $weatherOfCities,
+            'cityAPI' => $cityAPI
         ]);
     }
 }

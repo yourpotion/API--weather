@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Registration;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecutiryController extends AbstractController
+class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
     /**
