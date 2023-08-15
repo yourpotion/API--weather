@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Subscribe;
 
+use App\Entity\City;
+use App\Entity\User;
 use App\Repository\UserCityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
