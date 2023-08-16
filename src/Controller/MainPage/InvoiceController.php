@@ -39,7 +39,8 @@ class InvoiceController extends AbstractController
         ]);
     }
 
-    public function countingTime(int $hours){
+    public function countingTime(int $hours)
+    {
         return 3600000 * $hours;
     }
 }

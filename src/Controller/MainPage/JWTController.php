@@ -9,20 +9,10 @@ use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class JWTController extends AbstractController
 {
-    /**
-     * @var UserRepository
-     */
-    private UserRepository $userRepository;
-
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-        
-    }
-
     #[Route('/jwt/token/{userId}', name: 'app_jwt')]
     /**
      * @param JWTTokenManagerInterface $jwtManager
@@ -30,10 +20,8 @@ class JWTController extends AbstractController
      * 
      * @return Response
      */
-    public function index(JWTTokenManagerInterface $jwtManager, int $userId): Response
+    public function index(JWTTokenManagerInterface $jwtManager, UserInterface $user): Response
     {
-        $user = $this->userRepository->find($userId);
-
         $token = $jwtManager->create($user);
 
         return $this->render('jwt/index.html.twig', [
