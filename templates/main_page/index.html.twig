@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainPageController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		{% for city in cities %}
+			<br>{{city.name}}
+			<br>{{weatherOfCities[city.id - 1][city.name]}}<br>
+
+			<br>{{cityAPI[city.id - 1][city.name]}}
+			<br>
+		</input>
+		{% for hour in hours %}
+			<a href='/invoice/create/{{hour}}/{{app.user.id}}/{{city.id}}'>
+				{{hour}}
+			</a>
+		{% endfor %}
+		<br>
+	{% endfor %}
+	<br><a href='/list/{{app.user.id}}'>
+		List Of Subscribing</a>
+	<br><a href='/jwt/token/{{app.user.id}}'>
+		Here is ur JWT token</a>
+
+</div>{% endblock %}
