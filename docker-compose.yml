@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  rabbitmq:
+    image: rabbitmq:3.8-management
+    ports:
+      - 5672:15672
   mail:
     container_name: ${COMPOSE_PROJECT_NAME}_mail
     domainname: local

@@ -4,6 +4,7 @@ namespace App\MessageHandler;
 
 use App\Message\AsyncNotificationMessage;
 use App\Repository\UserRepository;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Notifier\Notification\Notification;
 use Symfony\Component\Notifier\NotifierInterface;
@@ -36,6 +37,7 @@ class AsyncNotificationHandler implements MessageHandlerInterface
      * 
      * @return void
      */
+    #[AsMessageHandler()]
     public function __invoke(AsyncNotificationMessage $message): void
     {
         $currentUser = $this->userRepository->find($message->getUserId());
@@ -48,6 +50,7 @@ class AsyncNotificationHandler implements MessageHandlerInterface
         $recipient = new Recipient(
             $currentUser->getEmail(),
         );
+
 
         // Отправить уведомление с задержкой
         $this->notifier->send($notification, $recipient);
