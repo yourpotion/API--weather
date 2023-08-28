@@ -9,17 +9,10 @@
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 
-		{% if app.user %}
-			<div class="mb-3">
-				You are logged in as
-				{{ app.user.userIdentifier }},
-				<a href="{{ path('app_logout') }}">Logout</a>
-			</div>
-		{% endif %}
 
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-		<label for="inputUsername">Username</label>
-		<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+		<label for="inputEmail">Email</label>
+		<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 		<label for="inputPassword">Password</label>
 		<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
@@ -29,4 +22,12 @@
 			Sign in
 		</button>
 	</form>
+	<a href="{{ path('hwi_oauth_service_redirect', {'service': 'auth0'}) }}" style="color: #fff;">
+		<div class="card mb-3" style="background-color: #e8542e">
+			<div class="card-body" style="padding: 0;">
+				<img src="https://images.ctfassets.net/23aumh6u8s0i/WtIL3D91xLCC14B7qN5y5/eb2995f1c305061449cc5115822dfade/02VeCz0" height="40"/>
+				Connect with Auth0
+			</div>
+		</div>
+	</a>
 {% endblock %}

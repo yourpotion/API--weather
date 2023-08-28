@@ -1,0 +1,10 @@
+{% set flight %}
+{{flight.departure}}
+{{flight.arrival}}
+{{flight.dateOfDeparture | date('d-m-Y')}}
+{{flight.dateOfArrival  | date('d-m-Y')}}
+{{flight.timeOfDeparture | date('H:i')}}
+{{flight.timeOfArrival | date('H:i')}}
+{{flight.price}}
+{% endset %}
+{{flight}}

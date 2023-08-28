@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{# assign global vars here #}
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -15,6 +16,16 @@
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+		{% block header %}
+			<a href="/{{app.user ? " logout" : " login"}}">
+				{{app.user ? "Logout" : "Login"}}
+			</a>
+			{% if app.user %}
+				<a href="/profile/{{app.user.id}}">
+					Profile
+				</a>
+			{% endif %}
 		{% endblock %}
 	</head>
 	<body>

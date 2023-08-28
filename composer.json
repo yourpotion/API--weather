@@ -7,19 +7,14 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/core": "*",
+        "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
-        "friendsofsymfony/rest-bundle": "*",
-        "jms/serializer-bundle": "^5.3",
-        "lexik/jwt-authentication-bundle": "^2.18",
-        "nelmio/cors-bundle": "^2.3",
-        "php-amqplib/php-amqplib": "*",
-        "php-amqplib/rabbitmq-bundle": "*",
+        "gupalo/browser-notifier": "*",
+        "hwi/oauth-bundle": "dev-master",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.23",
-        "symfony/amqp-messenger": "6.1.*",
         "symfony/asset": "6.1.*",
         "symfony/console": "6.1.*",
         "symfony/doctrine-messenger": "6.1.*",
@@ -47,18 +42,15 @@
         "symfony/web-link": "6.1.*",
         "symfony/yaml": "6.1.*",
         "symfonycasts/verify-email-bundle": "^1.13",
-        "twig/cssinliner-extra": "*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/inky-extra": "^3.7",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "6.1.*",
         "symfony/css-selector": "6.1.*",
         "symfony/debug-bundle": "6.1.*",
-        "symfony/maker-bundle": "^1.50",
+        "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^6.3",
         "symfony/stopwatch": "6.1.*",
         "symfony/web-profiler-bundle": "6.1.*"
@@ -97,8 +89,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "lexik:jwt:generate-keypair": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

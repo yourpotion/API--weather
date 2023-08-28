@@ -57,7 +57,7 @@ services:
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: weather
+      MYSQL_DATABASE: booking
     ports:
       - 127.0.0.1:13306:3306
     volumes:
