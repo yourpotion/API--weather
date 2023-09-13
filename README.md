@@ -31,16 +31,52 @@ To run this API locally, follow these steps:
 
    ```bash
    git clone https://github.com/yourusername/symfony-api-weather.git
+   ```
 2.Navigate to the project directory:
    ```bash
    cd instagram-on-symfony
+   ```
 
 3.Install dependencies:
    ```bash
    composer install
+   ```
 
-4.Configure your database connection in .env and run migrations: php bin/console doctrine:database:create php bin/console doctrine:migrations:migrate
+4.Configure your database connection in .env and run migrations: 
+   ```bash
+   php bin/console doctrine:database:create
+   php bin/console doctrine:migrations:migrate
+   ```
 
-5.Start the Symfony development server: symfony server:start
+5.Start the Symfony development server: 
+   ```bash
+   symfony server:start
+   ```
 
 Access the application in your web browser at http://localhost:8000.
+API Documentation
+For detailed API documentation, refer to the API Documentation file.
+
+Project Structure
+The project follows a typical Symfony application structure:
+
+src/: Contains application source code.
+config/: Configuration files.
+public/: Publicly accessible assets like CSS, JavaScript, and uploaded files.
+var/: Temporary files and cache.
+vendor/: Composer dependencies.
+bin/: Console commands and scripts.
+tests/: Unit and functional tests.
+docs/: Documentation files, including API documentation.
+UML Class Diagram
+UML Class Diagram
+
+Insert your UML class diagram here to provide an overview of the application's architecture.
+
+Contributing
+Contributions to this project are welcome. Please follow the contributing guidelines for details on how to contribute.
+
+License
+This project is licensed under the MIT License.
+
+
