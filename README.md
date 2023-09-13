@@ -30,7 +30,7 @@ To run this API locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/symfony-api-weather.git
+   git clone https://github.com/yourpotion/symfony-api-weather.git
    ```
 2.Navigate to the project directory:
    ```bash
