@@ -54,10 +54,11 @@ To run this API locally, follow these steps:
    ```
 
 Access the application in your web browser at http://localhost:8000.
-API Documentation
+
+## API Documentation
 For detailed API documentation, refer to the API Documentation file.
 
-Project Structure
+##Project Structure
 The project follows a typical Symfony application structure:
 
 src/: Contains application source code.
@@ -69,7 +70,7 @@ bin/: Console commands and scripts.
 tests/: Unit and functional tests.
 docs/: Documentation files, including API documentation.
 UML Class Diagram
-UML Class Diagram
+
 
 Insert your UML class diagram here to provide an overview of the application's architecture.
 
